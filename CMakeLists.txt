@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project(untitled142)
+project(DataStrcut_labyrinthos)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
@@ -17,7 +17,10 @@ find_package(Qt6 COMPONENTS
 add_executable(untitled142 Source/src/main.cpp
         Source/src/mainwindows.cpp
         Source/inc/mainwindows.h
-        Source/UI/mainwindows.ui)
+        Source/UI/mainwindows.ui
+        Matrix_lab.h
+        Matrix_lab.cpp
+        Matrix_lab.h)
 
 include_directories(
 

@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: untitled142
+# Project: DataStrcut_labyrinthos
 # Configurations: Debug
 # =============================================================================
 # =============================================================================
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/lsf/Desktop/code/zstuACM/untitled142 -B/Users/lsf/Desktop/code/zstuACM/untitled142/cmake-build-debug
+  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos -B/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 
