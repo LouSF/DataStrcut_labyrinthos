@@ -1,0 +1,14 @@
+//
+// Created by 楼胜峰 on 2024/1/6.
+//
+
+#ifndef DATASTRCUT_LABYRINTHOS_MATRIX_LAB_H
+#define DATASTRCUT_LABYRINTHOS_MATRIX_LAB_H
+
+
+class Matrix_lab {
+
+};
+
+
+#endif //DATASTRCUT_LABYRINTHOS_MATRIX_LAB_H
