@@ -157,7 +157,7 @@ build untitled142_autogen/timestamp untitled142_autogen/mocs_compilation.cpp | $
 #############################################
 # Phony custom command for CMakeFiles/untitled142_autogen_timestamp_deps
 
-build CMakeFiles/untitled142_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/untitled142_autogen_timestamp_deps: phony /opt/homebrew/share/qt/libexec/moc /opt/homebrew/share/qt/libexec/uic
+build CMakeFiles/untitled142_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/untitled142_autogen_timestamp_deps: phony /opt/homebrew/share/qt/libexec/uic /opt/homebrew/share/qt/libexec/moc
 
 
 #############################################

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>594</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -20,94 +20,140 @@
    <string>迷宫求解_LouShengfeng</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableView" name="tableView">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>701</width>
-      <height>461</height>
+      <x>0</x>
+      <y>0</y>
+      <width>661</width>
+      <height>481</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QPushButton" name="RUN_windows">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>440</y>
-      <width>81</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>运行</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>90</y>
-      <width>58</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>起点</string>
+    <property name="title">
+     <string>--------------迷宫图--------------</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="Start_Loc">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>710</x>
-      <y>110</y>
-      <width>81</width>
-      <height>21</height>
+      <x>670</x>
+      <y>310</y>
+      <width>121</width>
+      <height>179</height>
      </rect>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>150</y>
-      <width>58</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>终点</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="End_Loc">
-    <property name="geometry">
-     <rect>
-      <x>710</x>
-      <y>170</y>
-      <width>81</width>
-      <height>21</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QListView" name="listView">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>480</y>
-      <width>781</width>
-      <height>81</height>
-     </rect>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>请选择查找算法</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_A">
+       <property name="text">
+        <string>A*</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_DFS">
+       <property name="text">
+        <string>DFS</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="radioButton_BFS">
+       <property name="text">
+        <string>BFS</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_RUN">
+       <property name="text">
+        <string>RUN!</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>radioButton_A</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>radioButton_A</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>745</x>
+     <y>401</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>745</x>
+     <y>401</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_DFS</sender>
+   <signal>clicked()</signal>
+   <receiver>radioButton_DFS</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>700</x>
+     <y>422</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>700</x>
+     <y>422</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_BFS</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>radioButton_BFS</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>674</x>
+     <y>441</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>674</x>
+     <y>441</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_RUN</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>pushButton_RUN</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>718</x>
+     <y>474</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>718</x>
+     <y>474</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
