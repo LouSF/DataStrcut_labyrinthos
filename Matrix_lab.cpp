@@ -61,38 +61,21 @@ Matrix_lab file_input_Matrix(const std::string &file_PATH) {
     return M;
 }
 
-inline void FindWall(const std::vector<std::vector<int>> &map,
-                     std::vector<Matrix_Point> &Prim_stack,
-                     const Matrix_Point &Now_Point,
-                     const int &MAX_row, const int &MAX_col) {
-
-    const int dir_p_x[] = {-1, 0, 1, 0};
-    const int dir_p_y[] = {0, 1, 0, -1};
-    // left, up, right, down
-
-    for (int i = 0; i < 4; --i) {
-        int prex = Now_Point.x + dir_p_x[i];
-        int prey = Now_Point.y + dir_p_y[i];
-        if (map[prex][prey] == -1)
-            if (prex > 0 && prey > 0 && prex < MAX_row - 1 && prey < MAX_col - 1)
-                Prim_stack.emplace_back(prex ,prey, -1, i);
-    }
-
-}
-
 std::vector<std::vector<int>> Prim_Creator(const int _row, const int _col) {
 
     std::vector<std::vector<int>> map = std::vector<std::vector<int>>(_row,std::vector<int>(_col,-1));
     //[_row][_col]
     // wall = -1
-    // road = 0
+    // road = 1
     // 迷宫init
 
     for (int i = 0; i < _row; ++i)
         for (int j = 0; j < _col; ++j)
-            if (i | 1 && j | 1)
-                map[i][j] = 0;
+            if (i & 1 && j & 1)
+                map[i][j] = 1;
     // 迷宫init
+    // 未初始化 road = 1
+    // after init road = 1
 
     const int dir_p_x[] = {-1, 0, 1, 0};
     const int dir_p_y[] = {0, 1, 0, -1};
@@ -105,23 +88,33 @@ std::vector<std::vector<int>> Prim_Creator(const int _row, const int _col) {
 
     // 左上 与 右下 Now_point = start
     Matrix_Point Now_point = {1, 1, 0};
+    map[1][1] = 0;
 
-    FindWall(map, Prim_stack, Now_point, _row, _col);
+    do {
 
-    while(!Prim_stack.empty()) {
+        for (int i = 0; i < 4; ++i) {
+            int prex = Now_point.x + dir_p_x[i] * 2;
+            int prey = Now_point.y + dir_p_y[i] * 2;
 
-        int randnum = rand() % (int)Prim_stack.size();
-        Matrix_Point SelectBlock = Prim_stack[randnum];
-
-        Now_point = {Now_point.x + dir_p_x[SelectBlock.dir] * 2, Now_point.y + dir_p_y[SelectBlock.dir] * 2, 0};
-
-        if (map[SelectBlock.x][SelectBlock.y] == -1) {
-            map[SelectBlock.x][SelectBlock.y] = 0;
-            FindWall(map, Prim_stack, Now_point, _row, _col);
+            if (prex > 0 && prey > 0 && prex < _row && prey < _col)
+                if (map[prex][prey] == 1)
+                    Prim_stack.emplace_back(prex ,prey, 1, i);
         }
 
+        int randnum = rand() % (int)Prim_stack.size();
+
+        Matrix_Point NextRoad = Prim_stack[randnum];
+        if (map[NextRoad.x][NextRoad.y] == 1) {
+            map[NextRoad.x][NextRoad.y] = 0;
+            map[NextRoad.x - dir_p_x[NextRoad.dir]][NextRoad.y - dir_p_y[NextRoad.dir]] = 0;
+//            map[(NextRoad.x + Now_point.x) / 2][(NextRoad.y + Now_point.y) / 2] = 0;
+        }
+
+        Now_point = NextRoad;
+
         Prim_stack.erase(Prim_stack.begin() + randnum);
-    }
+
+    } while(!Prim_stack.empty());
 
     return map;
 }
@@ -154,4 +147,5 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
 
     return M;
 }
+
 

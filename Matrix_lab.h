@@ -43,5 +43,7 @@ public:
     // close table
 };
 
+Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
+Matrix_lab file_input_Matrix(const std::string &file_PATH);
 
 #endif //DATASTRCUT_LABYRINTHOS_MATRIX_LAB_H
