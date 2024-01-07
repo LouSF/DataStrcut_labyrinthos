@@ -152,5 +152,6 @@ void Matrix_lab::maze_solver() {
     std::priority_queue<Matrix_Point> open_table;
     std::vector<Matrix_Point> close_table;
 
+
 }
 

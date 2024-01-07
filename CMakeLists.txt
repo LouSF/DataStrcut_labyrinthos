@@ -18,9 +18,9 @@ add_executable(untitled142 Source/src/main.cpp
         Source/src/mainwindows.cpp
         Source/inc/mainwindows.h
         Source/UI/mainwindows.ui
-        Matrix_lab.h
-        Matrix_lab.cpp
-        Matrix_lab.h)
+        Source/inc/Matrix_lab.h
+        Source/src/Matrix_lab.cpp
+        Source/inc/Matrix_lab.h)
 
 include_directories(
 
