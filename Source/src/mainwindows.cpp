@@ -4,7 +4,7 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_MainWindows.h" resolved
 
-#include "../inc/mainwindows.h"
+#include "mainwindows.h"
 #include "../UI/ui_MainWindows.h"
 
 

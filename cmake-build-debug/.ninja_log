@@ -1,24 +1,10 @@
 # ninja log v5
-0	373	1704552391358286419	untitled142_autogen/timestamp	e233a3aa94e25d73
-0	373	1704552391358286419	untitled142_autogen/mocs_compilation.cpp	e233a3aa94e25d73
-0	373	1704552391358286419	/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos/cmake-build-debug/untitled142_autogen/timestamp	e233a3aa94e25d73
-0	373	1704552391358286419	/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos/cmake-build-debug/untitled142_autogen/mocs_compilation.cpp	e233a3aa94e25d73
-373	597	1704552391588575997	CMakeFiles/untitled142.dir/Matrix_lab.cpp.o	b3773e93749fa51e
-373	989	1704552391979731379	CMakeFiles/untitled142.dir/untitled142_autogen/mocs_compilation.cpp.o	d48ae432429515f7
-373	1000	1704552391990930826	CMakeFiles/untitled142.dir/Source/src/main.cpp.o	f3cc6bf5118f8c81
-373	1119	1704552392109511649	CMakeFiles/untitled142.dir/Source/src/mainwindows.cpp.o	956d7edec94cd011
-1120	1223	1704552392216123737	untitled142	6bcc02fb6e75e84d
-8	55	1704554086013015442	untitled142_autogen/timestamp	e233a3aa94e25d73
-8	55	1704554086013015442	untitled142_autogen/mocs_compilation.cpp	e233a3aa94e25d73
-8	55	1704554086013015442	/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos/cmake-build-debug/untitled142_autogen/timestamp	e233a3aa94e25d73
-8	55	1704554086013015442	/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos/cmake-build-debug/untitled142_autogen/mocs_compilation.cpp	e233a3aa94e25d73
-8	907	1704554089281844780	CMakeFiles/untitled142.dir/Source/src/mainwindows.cpp.o	956d7edec94cd011
-907	1125	1704554089499854305	untitled142	6bcc02fb6e75e84d
 9	71	1704557134821835041	untitled142_autogen/timestamp	e233a3aa94e25d73
+74	687	1704557135434160844	CMakeFiles/untitled142.dir/Matrix_lab.cpp.o	b3773e93749fa51e
 9	71	1704557134821835041	untitled142_autogen/mocs_compilation.cpp	e233a3aa94e25d73
 9	71	1704557134821835041	/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos/cmake-build-debug/untitled142_autogen/timestamp	e233a3aa94e25d73
 9	71	1704557134821835041	/Users/lsf/Desktop/code/zstuACM/DataStrcut_labyrinthos/cmake-build-debug/untitled142_autogen/mocs_compilation.cpp	e233a3aa94e25d73
-74	687	1704557135434160844	CMakeFiles/untitled142.dir/Matrix_lab.cpp.o	b3773e93749fa51e
-688	928	1704557135674393646	untitled142	6bcc02fb6e75e84d
+373	989	1704552391979731379	CMakeFiles/untitled142.dir/untitled142_autogen/mocs_compilation.cpp.o	d48ae432429515f7
+373	1000	1704552391990930826	CMakeFiles/untitled142.dir/Source/src/main.cpp.o	f3cc6bf5118f8c81
 8	720	1704557137968367773	CMakeFiles/untitled142.dir/Source/src/mainwindows.cpp.o	956d7edec94cd011
 721	815	1704557138065404644	untitled142	6bcc02fb6e75e84d
