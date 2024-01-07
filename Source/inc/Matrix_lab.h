@@ -23,12 +23,21 @@ struct Matrix_Point {
     Matrix_Point(int _x, int _y, int type = 0, int _dir = 4) : x(_x), y(_y), block_type(type), dir(_dir) {}
 };
 
-struct cmp_openTable {
+struct cmp_openTable_BFS {
     bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
         return a.block_type < b.block_type;
     }
 };
-
+struct cmp_openTable_DFS {
+    bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
+        return a.block_type < b.block_type;
+    }
+};
+struct cmp_openTable_Astar {
+    bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
+        return a.block_type < b.block_type;
+    }
+};
 
 
 
@@ -47,7 +56,7 @@ public:
     void file_output_Matrix(const std::string &file_PATH);
     friend Matrix_lab file_input_Matrix(const std::string &file_PATH);
     friend Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
-    std::vector<int> maze_solver(Matrix_Point start_point, Matrix_Point target_Point);
+    std::vector<int> maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE);
 };
 
 Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
