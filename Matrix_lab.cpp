@@ -148,5 +148,9 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
     return M;
 }
 
+void Matrix_lab::maze_solver() {
+    std::priority_queue<Matrix_Point> open_table;
+    std::vector<Matrix_Point> close_table;
 
+}
 
