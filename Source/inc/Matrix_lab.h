@@ -14,6 +14,9 @@
 #include <random>
 #include <ctime>
 
+static int MODE_maze_solver = 0;
+// 1:BFS 2:DFS 3:A*
+
 
 struct Matrix_Point {
     int x;
@@ -23,21 +26,18 @@ struct Matrix_Point {
     Matrix_Point(int _x, int _y, int type = 0, int _dir = 4) : x(_x), y(_y), block_type(type), dir(_dir) {}
 };
 
-struct cmp_openTable_BFS {
+struct cmp_openTable {
     bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
-        return a.block_type < b.block_type;
+        if (MODE_maze_solver == 1)
+            return a.block_type < b.block_type; // BFS
+        if (MODE_maze_solver == 2)
+            return a.block_type > b.block_type; // DFS
+        if (MODE_maze_solver == 3)
+            return a.block_type > b.block_type; // A*
     }
 };
-struct cmp_openTable_DFS {
-    bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
-        return a.block_type < b.block_type;
-    }
-};
-struct cmp_openTable_Astar {
-    bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
-        return a.block_type < b.block_type;
-    }
-};
+
+
 
 
 

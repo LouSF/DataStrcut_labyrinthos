@@ -151,12 +151,9 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
 
 
 std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE) {
-    if (MODE == 1)
-        std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable_BFS> open_table;
-    if (MODE == 2)
-        std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable_DFS> open_table;
-    if (MODE == 3)
-        std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable_Astar> open_table;
+    MODE_maze_solver = MODE;
+    std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable> open_table;
+
     std::vector<Matrix_Point> close_table;
 
     const int next_x[] = {-1, 0, 1, 0};
@@ -190,6 +187,6 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
         }
 
     }
-    return ;
+
 }
 
