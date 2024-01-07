@@ -86,10 +86,10 @@ public:
         MainWindows->setStatusBar(statusbar);
 
         retranslateUi(MainWindows);
-        QObject::connect(radioButton_A, &QRadioButton::clicked, radioButton_A, &QRadioButton::setChecked);
-        QObject::connect(radioButton_DFS, &QRadioButton::clicked, radioButton_DFS, &QRadioButton::setChecked);
-        QObject::connect(radioButton_BFS, &QRadioButton::clicked, radioButton_BFS, &QRadioButton::setChecked);
-        QObject::connect(pushButton_RUN, &QPushButton::clicked, pushButton_RUN, &QPushButton::setChecked);
+        QObject::connect(radioButton_A, &QRadioButton::clicked, radioButton_A, qOverload<>(&QRadioButton::click));
+        QObject::connect(radioButton_DFS, &QRadioButton::clicked, radioButton_DFS, qOverload<>(&QRadioButton::click));
+        QObject::connect(radioButton_BFS, &QRadioButton::clicked, radioButton_BFS, qOverload<>(&QRadioButton::click));
+        QObject::connect(pushButton_RUN, &QPushButton::clicked, pushButton_RUN, qOverload<>(&QPushButton::click));
 
         QMetaObject::connectSlotsByName(MainWindows);
     } // setupUi
