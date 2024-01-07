@@ -39,7 +39,7 @@ public:
     void file_output_Matrix(const std::string &file_PATH);
     friend Matrix_lab file_input_Matrix(const std::string &file_PATH);
     friend Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
-
+    void maze_solver();
 };
 
 Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
