@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -51,6 +52,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_RUN;
     QTextBrowser *terminal_message_output;
+    QFrame *maze;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindows)
@@ -161,6 +163,13 @@ public:
 
         horizontalLayout_2->addWidget(terminal_message_output);
 
+        maze = new QFrame(centralwidget);
+        maze->setObjectName("maze");
+        maze->setGeometry(QRect(10, 10, 781, 531));
+        maze->setAcceptDrops(false);
+        maze->setStyleSheet(QString::fromUtf8("#maze{border:1px solid rgb(1,1,1)}"));
+        maze->setFrameShape(QFrame::StyledPanel);
+        maze->setFrameShadow(QFrame::Raised);
         MainWindows->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindows);
         statusbar->setObjectName("statusbar");

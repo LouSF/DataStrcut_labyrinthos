@@ -41,3 +41,32 @@ void MainWindows::on_pushButton_Output_clicked() {
         ui -> lineEdit_filepath_Output -> setText(selectDir);//将选择输入数据的文件名路径填入文本框
     }
 }
+
+
+
+
+void MainWindows::paintEvent(QPaintEvent *) {
+    QPainter painter(this);     //画笔对象
+    painter.begin(this);
+    int perblock = (std::min(ui -> maze -> width(), ui -> maze -> height()) - 20) / std::max(M.row, M.col);
+    int start_x = ui->maze->x() + (ui->maze->width() - (ui->maze->x() + (std::max(M.row, M.col)) * perblock)) / 2;
+    int strat_y = ui->maze->y() + (ui->maze->height() - (ui->maze->y() + (std::max(M.row, M.col)) * perblock)) / 2;
+    M.maze_solver({1,1}, {99,99},  4);
+
+    //#
+    for (int i = 0; i < M.row; ++i) {
+        for (int j = 0; j < M.col; ++j) {
+            std::cout << M.data[i][j] << std::endl;
+            if (M.data[i][j] == -1) {
+                painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::black));
+            } else if (M.data[i][j] == 0) {
+                painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::gray));
+            } else  {
+                painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::red));
+            }
+
+        }
+    }
+    painter.end();
+
+}

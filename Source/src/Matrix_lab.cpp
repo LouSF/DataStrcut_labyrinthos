@@ -153,7 +153,7 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
 std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE) {
     MODE_maze_solver = MODE;
 
-     target = target_Point;
+    target = target_Point;
 
     std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable> open_table;
     std::vector<Matrix_Point> close_table;
@@ -184,14 +184,15 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
                 open_table.emplace(nextx, nexty, data[nextx][nexty], 0);
 
 
-            if (nextx == target_Point.x && nexty == target_Point.y)
-                point_found = true;
-
+            if (nextx == target_Point.x && nexty == target_Point.y) {
+                std::cout << "find" << std::endl;
+                return {0, 0};
+            }
         }
-        std::cout << open_table.empty() << std::endl;
     }
     return{0,0};
 }
+
 
 int heuristic(const Matrix_Point &Now_point) {
     int ans = abs(Now_point.x - target.x) + abs(Now_point.y - target.y);

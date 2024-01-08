@@ -931,6 +931,7 @@
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtCore.framework/Versions/A/Headers/qvarlengtharray.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtCore.framework/Versions/A/Headers/qversiontagging.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtCore.framework/Versions/A/Headers/qxptype_traits.h
+ mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/QPainter
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qaction.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qbitmap.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qbrush.h
@@ -943,13 +944,16 @@
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qimage.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qkeysequence.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qpaintdevice.h
+ mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qpainter.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qpalette.h
+ mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qpen.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qpixelformat.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qpixmap.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qpolygon.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qregion.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qrgb.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qrgba64.h
+ mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qtextoption.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qtgui-config.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qtguiexports.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qtguiglobal.h
@@ -957,9 +961,11 @@
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtGui.framework/Versions/A/Headers/qwindowdefs.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/QFileDialog
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/QMainWindow
+ mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/QMessageBox
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/qdialog.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/qfiledialog.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/qmainwindow.h
+ mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/qmessagebox.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/qsizepolicy.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/qtabwidget.h
  mdp:/opt/homebrew/Cellar/qt/6.6.1/lib/QtWidgets.framework/Versions/A/Headers/qtwidgets-config.h

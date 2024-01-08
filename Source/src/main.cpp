@@ -4,13 +4,17 @@
 
 #include <QApplication>
 #include "mainwindows.h"
-
+#include <chrono>
+#include <thread>
 int main(int argc, char *argv[])
 {
 
     QApplication a(argc, argv);
     MainWindows w;
     w.show();
-    std::cout << "fg" << std::endl;
+    M.maze_solver({1,1}, {99,99},  4);
+
+    w.repaint();
+
     return QApplication::exec();
 }

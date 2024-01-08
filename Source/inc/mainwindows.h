@@ -7,11 +7,16 @@
 
 #include <QMainWindow>
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QProcess>
+#include <QPainter>
 
 #include "Matrix_lab.h"
 
 #include "../UI/ui_MainWindows.h"
+
+
+static Matrix_lab M = random_creater_Matrix(100,100,1);
 
 
 QT_BEGIN_NAMESPACE
@@ -24,10 +29,14 @@ Q_OBJECT
 public:
     explicit MainWindows(QWidget *parent = nullptr);
 
+    void paintEvent(QPaintEvent *) override;
+
     ~MainWindows() override;
 
 private:
     Ui::MainWindows *ui;
+
+
 
 private slots:
 
@@ -36,6 +45,5 @@ private slots:
 
 
 };
-
 
 #endif //DATASTRCUT_LABYRINTHOS_MAINWINDOWS_H

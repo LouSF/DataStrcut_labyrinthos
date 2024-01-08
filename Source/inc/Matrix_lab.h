@@ -16,6 +16,7 @@
 
 
 
+
 static int MODE_maze_solver = 0;
 // 1:BFS 2:DFS 3:A*
 
@@ -36,8 +37,8 @@ class Matrix_lab {
     static const int Matrix_MAX_col = 10000;
     static const int Matrix_MIN_row = 2;
     static const int Matrix_MIN_col = 2;
-    std::vector<std::vector<int>> data;
-    int row = 0, col = 0;
+
+
 
     // data[row][col]
     // row and col 无法取到！ x - 1
@@ -45,6 +46,9 @@ class Matrix_lab {
     Matrix_lab(int _row, int _col) : row(_row), col(_col) {}
 
 public:
+    std::vector<std::vector<int>> data;
+    int row = 0, col = 0;
+
     void file_output_Matrix(const std::string &file_PATH);
 
     friend Matrix_lab file_input_Matrix(const std::string &file_PATH);
@@ -52,6 +56,7 @@ public:
     friend Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
 
     std::vector<int> maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE);
+
 };
 
 Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
