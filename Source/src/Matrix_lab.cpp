@@ -152,41 +152,42 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
 
 std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE) {
     MODE_maze_solver = MODE;
-    std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable> open_table;
 
+    std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable> open_table;
     std::vector<Matrix_Point> close_table;
 
     const int next_x[] = {-1, 0, 1, 0};
     const int next_y[] = {0, 1, 0, -1};
 
-    int step = 1;
     bool flag = false;
     open_table.push(start_point);
-    data[start_point.x][start_point.y] = step;
+    data[start_point.x][start_point.y] = start_point.block_type;
+
 
     while(!open_table.empty()) {
 
         Matrix_Point temp_point = open_table.top();
-        close_table.emplace_back(temp_point);
         open_table.pop();
-        step++;
+        close_table.emplace_back(temp_point);
+
+        bool point_found = false;
 
         for (int i = 0; i < 4; ++i) {
             int nextx = temp_point.x + next_x[i];
             int nexty = temp_point.y + next_y[i];
 
-            if (nextx == target_Point.x && nexty == target_Point.y)
-                flag = true;
 
-            if (data[nextx][nexty] == 0) {
-                data[nextx][nexty] = step;
-                open_table.emplace(nextx, nexty, close_table.size() - 1, 0);
+            if (nextx > 0 && nexty > 0 && nextx < row && nexty < col
+                && data[nextx][nexty] == 0) {
+                data[nextx][nexty] = temp_point.block_type + 1;
+                open_table.emplace(nextx, nexty, data[nextx][nexty], 0);
             }
 
+            if (nextx == target_Point.x && nexty == target_Point.y)
+                point_found = true;
 
         }
-
+        std::cout << open_table.empty() << std::endl;
     }
-
+    return{0,0};
 }
-

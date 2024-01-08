@@ -14,6 +14,7 @@
 #include <random>
 #include <ctime>
 
+
 static int MODE_maze_solver = 0;
 // 1:BFS 2:DFS 3:A*
 
@@ -29,16 +30,14 @@ struct Matrix_Point {
 struct cmp_openTable {
     bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
         if (MODE_maze_solver == 1)
-            return a.block_type < b.block_type; // BFS
+            return a.block_type > b.block_type; // BFS
         if (MODE_maze_solver == 2)
-            return a.block_type > b.block_type; // DFS
+            return a.block_type < b.block_type; // DFS
         if (MODE_maze_solver == 3)
             return a.block_type > b.block_type; // A*
+        return false;
     }
 };
-
-
-
 
 
 class Matrix_lab {
@@ -48,18 +47,23 @@ class Matrix_lab {
     static const int Matrix_MIN_col = 2;
     std::vector<std::vector<int>> data;
     int row = 0, col = 0;
+
     // data[row][col]
     // row and col 无法取到！ x - 1
-    Matrix_lab(int _row, int _col) : row(_row), col(_col){}
+    Matrix_lab(int _row, int _col) : row(_row), col(_col) {}
 
 public:
     void file_output_Matrix(const std::string &file_PATH);
+
     friend Matrix_lab file_input_Matrix(const std::string &file_PATH);
+
     friend Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
+
     std::vector<int> maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE);
 };
 
 Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
+
 Matrix_lab file_input_Matrix(const std::string &file_PATH);
 
 #endif //DATASTRCUT_LABYRINTHOS_MATRIX_LAB_H
