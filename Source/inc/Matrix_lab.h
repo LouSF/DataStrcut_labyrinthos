@@ -70,7 +70,8 @@ struct cmp_openTable {
             return a.block_type + heuristic(a) > b.block_type + heuristic(b); // A*
         if (MODE_maze_solver == 4)
             return heuristic(a) > heuristic(b); // A
-        return false;
+        std::cerr << "MODE_code invaild! cmp_openTable default: BFS" << std::endl;
+        return a.block_type > b.block_type; // BFS
     }
 };
 

@@ -85,75 +85,55 @@
       </widget>
      </item>
     </layout>
+    <zorder>label</zorder>
+    <zorder>radioButton_DFS</zorder>
+    <zorder>radioButton_BFS</zorder>
+    <zorder>pushButton_RUN</zorder>
+    <zorder>radioButton_A</zorder>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>20</y>
+      <width>121</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>迷宫图</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>生成迷宫</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>导入迷宫</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>导出迷宫</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>radioButton_A</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>radioButton_A</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>745</x>
-     <y>401</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>745</x>
-     <y>401</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_DFS</sender>
-   <signal>clicked()</signal>
-   <receiver>radioButton_DFS</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>700</x>
-     <y>422</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>700</x>
-     <y>422</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>radioButton_BFS</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>radioButton_BFS</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>674</x>
-     <y>441</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>674</x>
-     <y>441</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_RUN</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>pushButton_RUN</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>718</x>
-     <y>474</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>718</x>
-     <y>474</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
