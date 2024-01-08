@@ -171,6 +171,7 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
         Matrix_Point temp_point = open_table.top();
         open_table.pop();
         close_table.emplace_back(temp_point);
+        data[temp_point.x][temp_point.y] = temp_point.block_type + 1;
 
         bool point_found = false;
 
@@ -179,11 +180,9 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
             int nexty = temp_point.y + next_y[i];
 
 
-            if (nextx > 0 && nexty > 0 && nextx < row && nexty < col
-                && data[nextx][nexty] == 0) {
-                data[nextx][nexty] = temp_point.block_type + 1;
+            if (nextx > 0 && nexty > 0 && nextx < row && nexty < col && data[nextx][nexty] == 0)
                 open_table.emplace(nextx, nexty, data[nextx][nexty], 0);
-            }
+
 
             if (nextx == target_Point.x && nexty == target_Point.y)
                 point_found = true;
