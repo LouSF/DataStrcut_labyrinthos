@@ -67,7 +67,9 @@ struct cmp_openTable {
         if (MODE_maze_solver == 2)
             return a.block_type < b.block_type; // DFS
         if (MODE_maze_solver == 3)
-            return a.block_type + heuristic(a) < b.block_type + heuristic(b); // A*
+            return a.block_type + heuristic(a) > b.block_type + heuristic(b); // A*
+        if (MODE_maze_solver == 4)
+            return heuristic(a) > heuristic(b); // A
         return false;
     }
 };
