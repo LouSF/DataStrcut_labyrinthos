@@ -19,6 +19,7 @@ static int MODE_maze_solver = 0;
 // 1:BFS 2:DFS 3:A*
 
 
+
 struct Matrix_Point {
     int x;
     int y;
@@ -27,18 +28,7 @@ struct Matrix_Point {
     Matrix_Point(int _x, int _y, int type = 0, int _dir = 4) : x(_x), y(_y), block_type(type), dir(_dir) {}
 };
 
-struct cmp_openTable {
-    bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
-        if (MODE_maze_solver == 1)
-            return a.block_type > b.block_type; // BFS
-        if (MODE_maze_solver == 2)
-            return a.block_type < b.block_type; // DFS
-        if (MODE_maze_solver == 3)
-            return a.block_type > b.block_type; // A*
-        return false;
-    }
-};
-
+static Matrix_Point target(0, 0);
 
 class Matrix_lab {
     static const int Matrix_MAX_row = 10000;
@@ -50,6 +40,7 @@ class Matrix_lab {
 
     // data[row][col]
     // row and col 无法取到！ x - 1
+
     Matrix_lab(int _row, int _col) : row(_row), col(_col) {}
 
 public:
@@ -65,5 +56,20 @@ public:
 Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
 
 Matrix_lab file_input_Matrix(const std::string &file_PATH);
+
+int heuristic(const Matrix_Point &Now_point);
+
+
+struct cmp_openTable {
+    bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
+        if (MODE_maze_solver == 1)
+            return a.block_type > b.block_type; // BFS
+        if (MODE_maze_solver == 2)
+            return a.block_type < b.block_type; // DFS
+        if (MODE_maze_solver == 3)
+            return a.block_type + heuristic(a) < b.block_type + heuristic(b); // A*
+        return false;
+    }
+};
 
 #endif //DATASTRCUT_LABYRINTHOS_MATRIX_LAB_H
