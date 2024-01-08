@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>594</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -17,117 +17,159 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>迷宫求解_LouShengfeng</string>
+   <string>迷宫求解_楼胜峰</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGroupBox" name="groupBox">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>661</width>
-      <height>481</height>
+      <x>10</x>
+      <y>549</y>
+      <width>781</width>
+      <height>71</height>
      </rect>
     </property>
-    <property name="title">
-     <string>--------------迷宫图--------------</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>310</y>
-      <width>121</width>
-      <height>179</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="2">
+      <widget class="QPushButton" name="pushButton_Output">
+       <property name="text">
+        <string>浏览</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="pushButton_Input">
+       <property name="text">
+        <string>浏览</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>请选择查找算法</string>
+        <string>导入迷宫</string>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_A">
-       <property name="text">
-        <string>A*</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_DFS">
-       <property name="text">
-        <string>DFS</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QRadioButton" name="radioButton_BFS">
-       <property name="text">
-        <string>BFS</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_RUN">
-       <property name="text">
-        <string>RUN!</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-    <zorder>label</zorder>
-    <zorder>radioButton_DFS</zorder>
-    <zorder>radioButton_BFS</zorder>
-    <zorder>pushButton_RUN</zorder>
-    <zorder>radioButton_A</zorder>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>20</y>
-      <width>121</width>
-      <height>151</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
+     <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>迷宫图</string>
+        <string>导出迷宫</string>
        </property>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit_filepath_Input"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEdit_filepath_Output"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>620</y>
+      <width>781</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QLabel" name="label_3">
        <property name="text">
         <string>生成迷宫</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>导入迷宫</string>
+        <string>row</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QLineEdit" name="lineEdit_creator_row"/>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>导出迷宫</string>
+        <string>col</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit_creator_col"/>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_creator">
+       <property name="text">
+        <string>RUN</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>660</y>
+      <width>781</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="pushButton_RUN">
+       <property name="text">
+        <string>RUN</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="terminal_message_output"/>
      </item>
     </layout>
    </widget>

@@ -15,6 +15,7 @@
 #include <ctime>
 
 
+
 static int MODE_maze_solver = 0;
 // 1:BFS 2:DFS 3:A*
 

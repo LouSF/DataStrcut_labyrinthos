@@ -6,6 +6,12 @@
 #define DATASTRCUT_LABYRINTHOS_MAINWINDOWS_H
 
 #include <QMainWindow>
+#include <QFileDialog>
+#include <QProcess>
+
+#include "Matrix_lab.h"
+
+#include "../UI/ui_MainWindows.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +28,13 @@ public:
 
 private:
     Ui::MainWindows *ui;
+
+private slots:
+
+    void on_pushButton_Input_clicked();  //输入文件
+    void on_pushButton_Output_clicked(); //输出文件
+
+
 };
 
 
