@@ -157,38 +157,45 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
 
     std::priority_queue<Matrix_Point, std::vector<Matrix_Point>, cmp_openTable> open_table;
     std::vector<Matrix_Point> close_table;
+    std::vector<std::vector<int>> backforward = data;
 
     const int next_x[] = {-1, 0, 1, 0};
     const int next_y[] = {0, 1, 0, -1};
 
-    bool flag = false;
+    bool point_found = false;
     open_table.push(start_point);
     data[start_point.x][start_point.y] = start_point.block_type;
 
-
-    while(!open_table.empty()) {
+    while(!open_table.empty() && !point_found) {
 
         Matrix_Point temp_point = open_table.top();
         open_table.pop();
         close_table.emplace_back(temp_point);
         data[temp_point.x][temp_point.y] = temp_point.block_type + 1;
 
-        bool point_found = false;
+
 
         for (int i = 0; i < 4; ++i) {
             int nextx = temp_point.x + next_x[i];
             int nexty = temp_point.y + next_y[i];
 
 
-            if (nextx > 0 && nexty > 0 && nextx < row && nexty < col && data[nextx][nexty] == 0)
-                open_table.emplace(nextx, nexty, temp_point.block_type + 1, 0);
-
+            if (nextx > 0 && nexty > 0 && nextx < row && nexty < col && data[nextx][nexty] == 0) {
+                open_table.emplace(nextx, nexty, temp_point.block_type + 1,0);
+                backforward[nextx][nexty] = temp_point.x * Matrix_MAX_col + temp_point.y;// row * max_col + col // x * max_col + y
+            }
 
             if (nextx == target_Point.x && nexty == target_Point.y) {
                 std::cout << "find" << std::endl;
-                return {0, 0};
+                point_found = true;
             }
         }
+    }
+
+    int temp_pint_xy = target_Point.x * Matrix_MAX_col + target_Point.y;
+    while(temp_pint_xy) {
+        data[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] = -2;// -2 为路径
+        temp_pint_xy = backforward[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col];
     }
     return{0, 0};
 }

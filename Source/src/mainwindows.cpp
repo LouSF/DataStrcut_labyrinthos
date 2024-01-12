@@ -70,14 +70,19 @@ void MainWindows::paintEvent(QPaintEvent *) {
 //            std::cout << M.data[i][j] << std::endl;
             if (M.data[i][j] == -1) {
                 painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::black));
+            } else if (M.data[i][j] == -2) {
+                painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::blue));
             } else if (M.data[i][j] == 0) {
                 painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::gray));
             } else  {
                 painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::red));
             }
-
         }
     }
+
+
+
+
     painter.end();
 
 }

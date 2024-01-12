@@ -25,12 +25,12 @@ static int MODE_maze_solver = 0;
 struct Matrix_Point {
     int x;
     int y;
-    int block_type; // 在solver中解释为father(in vector)
-    int dir; // in solver as visit //4 is not visit //0 is visited
+    int block_type; // 访问循序
+    int dir; // 在solver中解释为father(in row * max_row + col)
     Matrix_Point(int _x, int _y, int type = 0, int _dir = 4) : x(_x), y(_y), block_type(type), dir(_dir) {}
 };
 
-static Matrix_Point target(0, 0);
+static Matrix_Point target(0, 0); // for solve
 
 class Matrix_lab {
     static const int Matrix_MAX_row = 500;
@@ -38,15 +38,14 @@ class Matrix_lab {
     static const int Matrix_MIN_row = 2;
     static const int Matrix_MIN_col = 2;
 
-
-
     // data[row][col]
     // row and col 无法取到！ x - 1
 
     Matrix_lab(int _row, int _col) : row(_row), col(_col) {}
 
 public:
-    std::vector<std::vector<int>> data;
+    std::vector<std::vector<int>> data;  //-2 true path  -1 wall  0 unvisit x visited
+
     int row = 0, col = 0;
 
     void file_output_Matrix(const std::string &file_PATH);
