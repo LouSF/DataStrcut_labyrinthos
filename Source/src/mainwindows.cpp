@@ -22,6 +22,8 @@ MainWindows::~MainWindows() {
 
 void MainWindows::on_pushButton_creator_clicked(){
 
+    ui -> lineEdit_filepath_Input ->setText("");
+
     int _row = (ui -> lineEdit_creator_row -> text()).toInt();
     int _col = (ui -> lineEdit_creator_col -> text()).toInt();
     M = random_creater_Matrix(_row, _col, 1);
@@ -62,8 +64,20 @@ void MainWindows::on_pushButton_Input_clicked() {
 
 }
 
-void MainWindows::on_pushButton_Input_run_clicked() {
-    M = file_input_Matrix(fileNameInput.toStdString());
+void MainWindows::on_pushButton_Input_run_clicked(){
+
+    fileNameInput = ui -> lineEdit_filepath_Input -> text();
+
+    if (!(fileNameInput.endsWith(".in") || fileNameInput.endsWith(".txt") || fileNameInput.endsWith(".out")) || fileNameInput.isEmpty()) {
+        ui -> terminal_message_output -> append("需要指定(*.txt *.in *.out)文件！\n");
+        return;
+    }
+
+    std::string file_path = fileNameInput.toStdString();
+    ui -> terminal_message_output -> append(fileNameInput);
+//    M = file_input_Matrix(file_path);
+    update();
+
     ui -> terminal_message_output -> append("输入成功！\n");
 }
 
@@ -80,6 +94,8 @@ void MainWindows::on_pushButton_Output_clicked() {
 
 void MainWindows::on_pushButton_Output_run_clicked() {
 
+    selectDir = ui -> lineEdit_filepath_Output -> text();
+
     if (selectDir.isEmpty()) {
         ui -> terminal_message_output -> append("需要指定文件夹！\n");
         return;
@@ -89,9 +105,8 @@ void MainWindows::on_pushButton_Output_run_clicked() {
     char* dt = ctime(&now);
 
     std::string Path = selectDir.toStdString() + "/maze_" + dt + ".in";
-    ui -> terminal_message_output -> append(QString::fromStdString(Path));
     M.file_output_Matrix(Path);
-    ui -> terminal_message_output -> append("输出成功！\n保存在/maze_(time)下\n");
+    ui -> terminal_message_output -> append("输出成功！\n" + QString::fromStdString(Path) + "\n");
 }
 
 
@@ -120,11 +135,7 @@ void MainWindows::paintEvent(QPaintEvent *) {
         }
     }
 
-
-
-
     painter.end();
-
 }
 
 
