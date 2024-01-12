@@ -148,7 +148,12 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
     return M;
 }
 
-
+void Matrix_lab::restart_maze() {
+    for (std::vector<int> &temp_out : data) {
+        for (int &out_number : temp_out)
+            if (out_number != -1) out_number = 0;
+    }
+}
 
 std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE) {
     MODE_maze_solver = MODE;

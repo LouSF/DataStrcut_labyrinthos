@@ -12,6 +12,8 @@ MainWindows::MainWindows(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindows) {
     ui->setupUi(this);
 
+    ui -> radioButton_BFS -> setChecked(true); // 模式初始化
+
 }
 
 MainWindows::~MainWindows() {
@@ -26,34 +28,72 @@ void MainWindows::on_pushButton_creator_clicked(){
     update();
 }
 void MainWindows::on_pushButton_RUN_clicked(){
-    M.maze_solver({1, 1, 1}, {M.row - 2, M.col - 2},  3);
+    on_pushButton_Restart_clicked();
+
+    int radio_mode = 1;
+    if (ui -> radioButton_BFS -> isChecked()) radio_mode = 1;
+    if (ui -> radioButton_DFS -> isChecked()) radio_mode = 2;
+    if (ui -> radioButton_AstarM -> isChecked()) radio_mode = 3;
+    if (ui -> radioButton_AstarO -> isChecked()) radio_mode = 4;
+    if (ui -> radioButton_A -> isChecked()) radio_mode = 5;
+
+    M.maze_solver({1, 1, 1}, {M.row - 2, M.col - 2},  radio_mode);
+    update();
+
+}
+
+void MainWindows::on_pushButton_Restart_clicked(){
+    M.restart_maze();
     update();
 }
 
-
 void MainWindows::on_pushButton_Input_clicked() {
     // 文件名将存为QString字符串格式
-    QString fileNameInput = QFileDialog::getOpenFileName(this, //getOpenFileName获取文件名
+    fileNameInput = QFileDialog::getOpenFileName(this, //getOpenFileName获取文件名
                                                          tr("Input File"),
                                                          "~/",	// 默认位置为~
                                                          tr("Seismic(*.txt *.in *.out);;")); //创建文件名及路径选择对话窗口、支持的格式为segy
 
-    ui -> terminal_message_output -> setText("输入文件\n" + fileNameInput + '\n');
-
+    ui -> terminal_message_output -> append("输入文件: " + fileNameInput + '\n');
 
     if (!fileNameInput.isEmpty()) {
         ui -> lineEdit_filepath_Input -> setText(fileNameInput);//将选择输入数据的文件名路径填入文本框
     }
+
+}
+
+void MainWindows::on_pushButton_Input_run_clicked() {
+    M = file_input_Matrix(fileNameInput.toStdString());
+    ui -> terminal_message_output -> append("输入成功！\n");
 }
 
 void MainWindows::on_pushButton_Output_clicked() {
     // 文件名将存为QString字符串格式
-    QString selectDir = QFileDialog::getExistingDirectory();
+    selectDir = QFileDialog::getExistingDirectory();
+
+    ui -> terminal_message_output -> append("输出文件夹: " + selectDir + '\n');
 
     if (!selectDir.isEmpty()) {
         ui -> lineEdit_filepath_Output -> setText(selectDir);//将选择输入数据的文件名路径填入文本框
     }
 }
+
+void MainWindows::on_pushButton_Output_run_clicked() {
+
+    if (selectDir.isEmpty()) {
+        ui -> terminal_message_output -> append("需要指定文件夹！\n");
+        return;
+    }
+
+    time_t now = time(nullptr);
+    char* dt = ctime(&now);
+
+    std::string Path = selectDir.toStdString() + "/maze_" + dt + ".in";
+    ui -> terminal_message_output -> append(QString::fromStdString(Path));
+    M.file_output_Matrix(Path);
+    ui -> terminal_message_output -> append("输出成功！\n保存在/maze_(time)下\n");
+}
+
 
 
 

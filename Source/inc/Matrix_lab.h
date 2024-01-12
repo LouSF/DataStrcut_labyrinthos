@@ -56,6 +56,8 @@ public:
 
     std::vector<int> maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE);
 
+    void restart_maze();
+
 
 };
 

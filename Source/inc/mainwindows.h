@@ -35,6 +35,8 @@ public:
 private:
     Ui::MainWindows *ui;
 
+    QString fileNameInput;
+    QString selectDir;
 
 
 private slots:
@@ -43,7 +45,9 @@ private slots:
     void on_pushButton_Output_clicked(); //输出文件
     void on_pushButton_creator_clicked(); //生成迷宫
     void on_pushButton_RUN_clicked(); //求解
-
+    void on_pushButton_Restart_clicked(); //重新开始
+    void on_pushButton_Input_run_clicked();
+    void on_pushButton_Output_run_clicked();
 };
 
 #endif //DATASTRCUT_LABYRINTHOS_MAINWINDOWS_H

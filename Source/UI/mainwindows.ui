@@ -30,10 +30,10 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="2">
-      <widget class="QPushButton" name="pushButton_Output">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>浏览</string>
+        <string>导入迷宫</string>
        </property>
       </widget>
      </item>
@@ -44,10 +44,16 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit_filepath_Input"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEdit_filepath_Output"/>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="pushButton_Output">
        <property name="text">
-        <string>导入迷宫</string>
+        <string>浏览</string>
        </property>
       </widget>
      </item>
@@ -58,11 +64,19 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit_filepath_Input"/>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="pushButton_Input_run">
+       <property name="text">
+        <string>InPut</string>
+       </property>
+      </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEdit_filepath_Output"/>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="pushButton_Output_run">
+       <property name="text">
+        <string>OutPut</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -145,7 +159,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_creator">
        <property name="text">
-        <string>RUN</string>
+        <string>生成</string>
        </property>
       </widget>
      </item>
@@ -162,11 +176,61 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QPushButton" name="pushButton_RUN">
-       <property name="text">
-        <string>RUN</string>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButton_RUN">
+         <property name="text">
+          <string>RUN</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_Restart">
+         <property name="text">
+          <string>Restart</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QRadioButton" name="radioButton_BFS">
+         <property name="text">
+          <string>BFS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_DFS">
+         <property name="text">
+          <string>DFS</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_AstarM">
+         <property name="text">
+          <string>A*(曼哈顿)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_AstarO">
+         <property name="text">
+          <string>A*(欧氏)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButton_A">
+         <property name="text">
+          <string>A</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <widget class="QTextBrowser" name="terminal_message_output"/>

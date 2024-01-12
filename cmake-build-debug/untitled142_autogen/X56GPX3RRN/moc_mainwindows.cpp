@@ -43,17 +43,23 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowsENDCLASS = QtMocHelpers
     "",
     "on_pushButton_Output_clicked",
     "on_pushButton_creator_clicked",
-    "on_pushButton_RUN_clicked"
+    "on_pushButton_RUN_clicked",
+    "on_pushButton_Restart_clicked",
+    "on_pushButton_Input_run_clicked",
+    "on_pushButton_Output_run_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowsENDCLASS_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[18];
     char stringdata0[12];
     char stringdata1[28];
     char stringdata2[1];
     char stringdata3[29];
     char stringdata4[30];
     char stringdata5[26];
+    char stringdata6[30];
+    char stringdata7[32];
+    char stringdata8[33];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowsENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -64,14 +70,20 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowsENDCLASS_t qt_meta_s
         QT_MOC_LITERAL(40, 0),  // ""
         QT_MOC_LITERAL(41, 28),  // "on_pushButton_Output_clicked"
         QT_MOC_LITERAL(70, 29),  // "on_pushButton_creator_clicked"
-        QT_MOC_LITERAL(100, 25)   // "on_pushButton_RUN_clicked"
+        QT_MOC_LITERAL(100, 25),  // "on_pushButton_RUN_clicked"
+        QT_MOC_LITERAL(126, 29),  // "on_pushButton_Restart_clicked"
+        QT_MOC_LITERAL(156, 31),  // "on_pushButton_Input_run_clicked"
+        QT_MOC_LITERAL(188, 32)   // "on_pushButton_Output_run_clicked"
     },
     "MainWindows",
     "on_pushButton_Input_clicked",
     "",
     "on_pushButton_Output_clicked",
     "on_pushButton_creator_clicked",
-    "on_pushButton_RUN_clicked"
+    "on_pushButton_RUN_clicked",
+    "on_pushButton_Restart_clicked",
+    "on_pushButton_Input_run_clicked",
+    "on_pushButton_Output_run_clicked"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -83,7 +95,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowsENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -91,12 +103,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowsENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x08,    1 /* Private */,
-       3,    0,   39,    2, 0x08,    2 /* Private */,
-       4,    0,   40,    2, 0x08,    3 /* Private */,
-       5,    0,   41,    2, 0x08,    4 /* Private */,
+       1,    0,   56,    2, 0x08,    1 /* Private */,
+       3,    0,   57,    2, 0x08,    2 /* Private */,
+       4,    0,   58,    2, 0x08,    3 /* Private */,
+       5,    0,   59,    2, 0x08,    4 /* Private */,
+       6,    0,   60,    2, 0x08,    5 /* Private */,
+       7,    0,   61,    2, 0x08,    6 /* Private */,
+       8,    0,   62,    2, 0x08,    7 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -121,6 +139,12 @@ Q_CONSTINIT const QMetaObject MainWindows::staticMetaObject = { {
         // method 'on_pushButton_creator_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton_RUN_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_Restart_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_Input_run_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_Output_run_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -136,6 +160,9 @@ void MainWindows::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 1: _t->on_pushButton_Output_clicked(); break;
         case 2: _t->on_pushButton_creator_clicked(); break;
         case 3: _t->on_pushButton_RUN_clicked(); break;
+        case 4: _t->on_pushButton_Restart_clicked(); break;
+        case 5: _t->on_pushButton_Input_run_clicked(); break;
+        case 6: _t->on_pushButton_Output_run_clicked(); break;
         default: ;
         }
     }
@@ -161,13 +188,13 @@ int MainWindows::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 7;
     }
     return _id;
 }
