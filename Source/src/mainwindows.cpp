@@ -74,8 +74,7 @@ void MainWindows::on_pushButton_Input_run_clicked(){
     }
 
     std::string file_path = fileNameInput.toStdString();
-    ui -> terminal_message_output -> append(fileNameInput);
-//    M = file_input_Matrix(file_path);
+    M = file_input_Matrix(file_path);
     update();
 
     ui -> terminal_message_output -> append("输入成功！\n");
@@ -101,11 +100,10 @@ void MainWindows::on_pushButton_Output_run_clicked() {
         return;
     }
 
-    time_t now = time(nullptr);
-    char* dt = ctime(&now);
-
-    std::string Path = selectDir.toStdString() + "/maze_" + dt + ".in";
+    std::time_t current_time = std::time(nullptr);
+    std::string Path = selectDir.toStdString() + "/maze_" + std::to_string(current_time) + ".in";
     M.file_output_Matrix(Path);
+
     ui -> terminal_message_output -> append("输出成功！\n" + QString::fromStdString(Path) + "\n");
 }
 

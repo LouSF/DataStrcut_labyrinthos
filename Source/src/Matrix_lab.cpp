@@ -53,9 +53,19 @@ Matrix_lab file_input_Matrix(const std::string &file_PATH) {
         return {0, 0};
     }
 
-    for (int i = 0; i < _row; ++i)
-        for (int j = 0; j < _col; ++j)
-            fin >> M.data[i][j];
+//    for (int i = 0; i < _row; ++i)
+//        for (int j = 0; j < _col; ++j)
+//            fin >> M.data[i][j];
+
+    for (int i = 0; i < _row; ++i) {
+        std::vector<int> temp_col;
+        int temp_v;
+        for (int j = 0; j < _col; ++j) {
+            fin >> temp_v;
+            temp_col.emplace_back(temp_v);
+        }
+        M.data.emplace_back(temp_col);
+    }
 
     fin.close();
     return M;
