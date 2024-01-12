@@ -16,8 +16,7 @@
 #include "../UI/ui_MainWindows.h"
 
 
-static Matrix_lab M = random_creater_Matrix(100,100,1);
-
+static Matrix_lab M = random_creater_Matrix(5, 5, 1);
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindows; }
@@ -42,7 +41,8 @@ private slots:
 
     void on_pushButton_Input_clicked();  //输入文件
     void on_pushButton_Output_clicked(); //输出文件
-
+    void on_pushButton_creator_clicked(); //生成迷宫
+    void on_pushButton_RUN_clicked(); //求解
 
 };
 

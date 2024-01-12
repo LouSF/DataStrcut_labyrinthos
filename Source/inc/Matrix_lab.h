@@ -33,8 +33,8 @@ struct Matrix_Point {
 static Matrix_Point target(0, 0);
 
 class Matrix_lab {
-    static const int Matrix_MAX_row = 10000;
-    static const int Matrix_MAX_col = 10000;
+    static const int Matrix_MAX_row = 500;
+    static const int Matrix_MAX_col = 500;
     static const int Matrix_MIN_row = 2;
     static const int Matrix_MIN_col = 2;
 
@@ -57,6 +57,7 @@ public:
 
     std::vector<int> maze_solver(Matrix_Point start_point, Matrix_Point target_Point, int MODE);
 
+
 };
 
 Matrix_lab random_creater_Matrix(int _row, int _col, int MODE);
@@ -65,6 +66,7 @@ Matrix_lab file_input_Matrix(const std::string &file_PATH);
 
 int heuristic(const Matrix_Point &Now_point);
 
+double heuristic_2(const Matrix_Point &Now_point);
 
 struct cmp_openTable {
     bool operator()(const Matrix_Point &a, const Matrix_Point &b) {
@@ -73,8 +75,10 @@ struct cmp_openTable {
         if (MODE_maze_solver == 2)
             return a.block_type < b.block_type; // DFS
         if (MODE_maze_solver == 3)
-            return a.block_type + heuristic(a) > b.block_type + heuristic(b); // A*
+            return a.block_type + heuristic(a) > b.block_type + heuristic(b); // A* ||1
         if (MODE_maze_solver == 4)
+            return a.block_type + heuristic_2(a) > b.block_type + heuristic_2(b); // A* ||2
+        if (MODE_maze_solver == 5)
             return heuristic(a) > heuristic(b); // A
         std::cerr << "MODE_code invaild! cmp_openTable default: BFS" << std::endl;
         return a.block_type > b.block_type; // BFS

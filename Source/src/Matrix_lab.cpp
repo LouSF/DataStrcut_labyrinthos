@@ -181,7 +181,8 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
 
 
             if (nextx > 0 && nexty > 0 && nextx < row && nexty < col && data[nextx][nexty] == 0)
-                open_table.emplace(nextx, nexty, data[nextx][nexty], 0);
+//                open_table.emplace(nextx, nexty, data[nextx][nexty], 0);
+//                open_table.emplace(nextx, nexty, temp_point.block_type + 1, 0);
 
 
             if (nextx == target_Point.x && nexty == target_Point.y) {
@@ -190,7 +191,7 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
             }
         }
     }
-    return{0,0};
+    return{0, 0};
 }
 
 
@@ -198,3 +199,9 @@ int heuristic(const Matrix_Point &Now_point) {
     int ans = abs(Now_point.x - target.x) + abs(Now_point.y - target.y);
     return ans;
 }
+
+double heuristic_2(const Matrix_Point &Now_point) {
+    int ans = (Now_point.x - target.x) * (Now_point.x - target.x) + (Now_point.y - target.y) * (Now_point.y - target.y);
+    return (double)sqrt(ans);
+}
+

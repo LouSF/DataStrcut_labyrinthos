@@ -11,10 +11,23 @@
 MainWindows::MainWindows(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindows) {
     ui->setupUi(this);
+
 }
 
 MainWindows::~MainWindows() {
     delete ui;
+}
+
+void MainWindows::on_pushButton_creator_clicked(){
+
+    int _row = (ui -> lineEdit_creator_row -> text()).toInt();
+    int _col = (ui -> lineEdit_creator_col -> text()).toInt();
+    M = random_creater_Matrix(_row, _col, 1);
+    update();
+}
+void MainWindows::on_pushButton_RUN_clicked(){
+    M.maze_solver({1, 1, 1}, {M.row - 2, M.col - 2},  3);
+    update();
 }
 
 
@@ -51,12 +64,10 @@ void MainWindows::paintEvent(QPaintEvent *) {
     int perblock = (std::min(ui -> maze -> width(), ui -> maze -> height()) - 20) / std::max(M.row, M.col);
     int start_x = ui->maze->x() + (ui->maze->width() - (ui->maze->x() + (std::max(M.row, M.col)) * perblock)) / 2;
     int strat_y = ui->maze->y() + (ui->maze->height() - (ui->maze->y() + (std::max(M.row, M.col)) * perblock)) / 2;
-    M.maze_solver({1,1}, {99,99},  4);
-
     //#
     for (int i = 0; i < M.row; ++i) {
         for (int j = 0; j < M.col; ++j) {
-            std::cout << M.data[i][j] << std::endl;
+//            std::cout << M.data[i][j] << std::endl;
             if (M.data[i][j] == -1) {
                 painter.fillRect(start_x + i * perblock, strat_y + j * perblock, perblock, perblock, QBrush(Qt::black));
             } else if (M.data[i][j] == 0) {
@@ -70,3 +81,5 @@ void MainWindows::paintEvent(QPaintEvent *) {
     painter.end();
 
 }
+
+
