@@ -62,7 +62,7 @@ Matrix_lab file_input_Matrix(const std::string &file_PATH) {
         int temp_v;
         for (int j = 0; j < _col; ++j) {
             fin >> temp_v;
-            if (fin.eof() || temp_v < -2 || temp_v > 2500) {
+            if (fin.eof() || temp_v < -2 || temp_v > 2500) { // fin.eof() 输入文件数据完整性
                 M.data_click = false;
                 return {0, 0};
             }
