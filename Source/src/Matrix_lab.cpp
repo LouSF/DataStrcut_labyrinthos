@@ -210,10 +210,14 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
     }
 
     int temp_pint_xy = target_Point.x * Matrix_MAX_col + target_Point.y;
+    int next_pint_xy;
     while(temp_pint_xy) {
-        data[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] = -2;// -2 为路径
-        temp_pint_xy = backforward[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col];
+        next_pint_xy = backforward[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col];
+        if (next_pint_xy != 0 && next_pint_xy != -1)
+            data[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] = -2;// -2 为路径
+        temp_pint_xy = next_pint_xy;
     }
+
     return{0, 0};
 }
 
