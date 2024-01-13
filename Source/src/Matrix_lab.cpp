@@ -213,8 +213,11 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
     const int next_y[] = {0, 1, 0, -1};
 
     bool point_found = false;
-    open_table.push(start_point);
-    data[start_point.x][start_point.y] = start_point.block_type;
+    if (start_point.x > 0 && start_point.y > 0 && start_point.x < row && start_point.y < col && data[start_point.x][start_point.y] == 0) {
+        open_table.push(start_point);
+        data[start_point.x][start_point.y] = start_point.block_type;
+    }
+
 
     while(!open_table.empty() && !point_found) {
 
@@ -244,11 +247,12 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
 
     int temp_pint_xy = target_Point.x * Matrix_MAX_col + target_Point.y;
     int next_pint_xy;
+
     while(temp_pint_xy) {
         next_pint_xy = backforward[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col];
 
-        if ((next_pint_xy != 0 && data[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] != -1) ||
-        temp_pint_xy == start_point.x  * Matrix_MAX_col + start_point.y)
+        if ((next_pint_xy != 0  || temp_pint_xy == start_point.x  * Matrix_MAX_col + start_point.y)
+            && backforward[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] != -1)
             data[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] = -2;// -2 为路径
 
         temp_pint_xy = next_pint_xy;
