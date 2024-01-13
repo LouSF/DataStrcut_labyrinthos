@@ -57,6 +57,15 @@ public:
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_RUN;
     QPushButton *pushButton_Restart;
+    QGridLayout *gridLayout_2;
+    QLineEdit *lineEdit_point_start_x;
+    QLineEdit *lineEdit_point_target_x;
+    QLineEdit *lineEdit_point_start_y;
+    QLabel *label_6;
+    QLineEdit *lineEdit_point_target_y;
+    QLabel *label_7;
+    QLabel *label_8;
+    QLabel *label_9;
     QVBoxLayout *verticalLayout_3;
     QRadioButton *radioButton_BFS;
     QRadioButton *radioButton_DFS;
@@ -171,7 +180,7 @@ public:
 
         horizontalLayoutWidget_2 = new QWidget(centralwidget);
         horizontalLayoutWidget_2->setObjectName("horizontalLayoutWidget_2");
-        horizontalLayoutWidget_2->setGeometry(QRect(10, 660, 781, 111));
+        horizontalLayoutWidget_2->setGeometry(QRect(10, 660, 924, 111));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -189,6 +198,58 @@ public:
 
 
         horizontalLayout_2->addLayout(verticalLayout_2);
+
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setObjectName("gridLayout_2");
+        lineEdit_point_start_x = new QLineEdit(horizontalLayoutWidget_2);
+        lineEdit_point_start_x->setObjectName("lineEdit_point_start_x");
+        lineEdit_point_start_x->setMaximumSize(QSize(80, 16777215));
+
+        gridLayout_2->addWidget(lineEdit_point_start_x, 1, 1, 1, 1);
+
+        lineEdit_point_target_x = new QLineEdit(horizontalLayoutWidget_2);
+        lineEdit_point_target_x->setObjectName("lineEdit_point_target_x");
+        lineEdit_point_target_x->setMaximumSize(QSize(80, 16777215));
+
+        gridLayout_2->addWidget(lineEdit_point_target_x, 2, 1, 1, 1);
+
+        lineEdit_point_start_y = new QLineEdit(horizontalLayoutWidget_2);
+        lineEdit_point_start_y->setObjectName("lineEdit_point_start_y");
+        lineEdit_point_start_y->setMaximumSize(QSize(80, 16777215));
+
+        gridLayout_2->addWidget(lineEdit_point_start_y, 1, 2, 1, 1);
+
+        label_6 = new QLabel(horizontalLayoutWidget_2);
+        label_6->setObjectName("label_6");
+        label_6->setMaximumSize(QSize(40, 16777215));
+
+        gridLayout_2->addWidget(label_6, 2, 0, 1, 1);
+
+        lineEdit_point_target_y = new QLineEdit(horizontalLayoutWidget_2);
+        lineEdit_point_target_y->setObjectName("lineEdit_point_target_y");
+        lineEdit_point_target_y->setMaximumSize(QSize(80, 16777215));
+
+        gridLayout_2->addWidget(lineEdit_point_target_y, 2, 2, 1, 1);
+
+        label_7 = new QLabel(horizontalLayoutWidget_2);
+        label_7->setObjectName("label_7");
+        label_7->setMaximumSize(QSize(40, 16777215));
+
+        gridLayout_2->addWidget(label_7, 1, 0, 1, 1);
+
+        label_8 = new QLabel(horizontalLayoutWidget_2);
+        label_8->setObjectName("label_8");
+        label_8->setMaximumSize(QSize(16777215, 20));
+
+        gridLayout_2->addWidget(label_8, 0, 1, 1, 1);
+
+        label_9 = new QLabel(horizontalLayoutWidget_2);
+        label_9->setObjectName("label_9");
+
+        gridLayout_2->addWidget(label_9, 0, 2, 1, 1);
+
+
+        horizontalLayout_2->addLayout(gridLayout_2);
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName("verticalLayout_3");
@@ -222,6 +283,7 @@ public:
 
         terminal_message_output = new QTextBrowser(horizontalLayoutWidget_2);
         terminal_message_output->setObjectName("terminal_message_output");
+        terminal_message_output->setMinimumSize(QSize(640, 0));
 
         horizontalLayout_2->addWidget(terminal_message_output);
 
@@ -257,6 +319,11 @@ public:
         pushButton_creator->setText(QCoreApplication::translate("MainWindows", "\347\224\237\346\210\220", nullptr));
         pushButton_RUN->setText(QCoreApplication::translate("MainWindows", "RUN", nullptr));
         pushButton_Restart->setText(QCoreApplication::translate("MainWindows", "Restart", nullptr));
+        lineEdit_point_start_x->setText(QString());
+        label_6->setText(QCoreApplication::translate("MainWindows", "\347\273\210\347\202\271", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindows", "\350\265\267\347\202\271", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindows", "X", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindows", "Y", nullptr));
         radioButton_BFS->setText(QCoreApplication::translate("MainWindows", "BFS", nullptr));
         radioButton_DFS->setText(QCoreApplication::translate("MainWindows", "DFS", nullptr));
         radioButton_AstarM->setText(QCoreApplication::translate("MainWindows", "A*(\346\233\274\345\223\210\351\241\277)", nullptr));

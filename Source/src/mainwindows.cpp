@@ -26,9 +26,25 @@ void MainWindows::on_pushButton_creator_clicked(){
 
     int _row = (ui -> lineEdit_creator_row -> text()).toInt();
     int _col = (ui -> lineEdit_creator_col -> text()).toInt();
+
+    if (!(_row <= 500 && _row > 2 && _col <= 500 && _col > 2)) {
+        ui -> terminal_message_output -> append("数据范围违法！ \n");
+        return;
+    }
+
+
     M = random_creater_Matrix(_row, _col, 1);
+
+    ui -> lineEdit_point_start_x -> setText("1");
+    ui -> lineEdit_point_start_y -> setText("1");
+    ui -> lineEdit_point_target_x -> setText(QString::number(M.row - 2));
+    ui -> lineEdit_point_target_y -> setText(QString::number(M.col - 2));
+
     update();
+
+    ui -> terminal_message_output -> append("生成成功！ \n");
 }
+
 void MainWindows::on_pushButton_RUN_clicked(){
     on_pushButton_Restart_clicked();
 
@@ -39,7 +55,19 @@ void MainWindows::on_pushButton_RUN_clicked(){
     if (ui -> radioButton_AstarO -> isChecked()) radio_mode = 4;
     if (ui -> radioButton_A -> isChecked()) radio_mode = 5;
 
-    M.maze_solver({1, 1, 1}, {M.row - 2, M.col - 2},  radio_mode);
+    int start_point_x = (ui -> lineEdit_point_start_x -> text()).toInt();
+    int start_point_y = (ui -> lineEdit_point_start_y -> text()).toInt();
+    int target_point_x = (ui -> lineEdit_point_target_x -> text()).toInt();
+    int target_point_y = (ui -> lineEdit_point_target_y -> text()).toInt();
+
+    if (!(start_point_x > 0 && start_point_x < M.row - 1 && start_point_y > 0 && start_point_y < M.col - 1 &&
+    target_point_x > 0 && target_point_x < M.row - 1 && target_point_y > 0 && target_point_y < M.col - 1 )) {
+        ui -> terminal_message_output -> append("起点或终点非法！ \n");
+        return;
+    }
+
+    M.maze_solver({start_point_x, start_point_y, 1}, {target_point_x, target_point_y},  radio_mode);
+
     update();
 
 }
@@ -78,6 +106,11 @@ void MainWindows::on_pushButton_Input_run_clicked(){
     update();
 
     ui -> terminal_message_output -> append("输入成功！\n");
+
+    ui -> lineEdit_point_start_x -> setText("1");
+    ui -> lineEdit_point_start_y -> setText("1");
+    ui -> lineEdit_point_target_x -> setText(QString::number(M.row - 2));
+    ui -> lineEdit_point_target_y -> setText(QString::number(M.col - 2));
 }
 
 void MainWindows::on_pushButton_Output_clicked() {
