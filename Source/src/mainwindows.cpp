@@ -68,6 +68,8 @@ void MainWindows::on_pushButton_RUN_clicked(){
 
     M.maze_solver({start_point_x, start_point_y, 1}, {target_point_x, target_point_y},  radio_mode);
 
+    ui -> terminal_message_output -> append("完成！ \n");
+
     update();
 
 }
