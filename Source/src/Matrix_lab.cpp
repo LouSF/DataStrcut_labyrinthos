@@ -111,6 +111,8 @@ std::vector<std::vector<int>> Prim_Creator(const int _row, const int _col) {
                     Prim_stack.emplace_back(prex ,prey, 1, i);
         }
 
+        if (!Prim_stack.size()) return map; // row == col == 3时 1格时 判断是否除0
+
         int randnum = rand() % (int)Prim_stack.size();
 
         Matrix_Point NextRoad = Prim_stack[randnum];

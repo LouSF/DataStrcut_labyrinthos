@@ -27,7 +27,7 @@ void MainWindows::on_pushButton_creator_clicked(){
     int _row = (ui -> lineEdit_creator_row -> text()).toInt();
     int _col = (ui -> lineEdit_creator_col -> text()).toInt();
 
-    if (!(_row <= 500 && _row > 2 && _col <= 500 && _col > 2)) {
+    if (!(_row <= 500 && _row >= 3 && _col <= 500 && _col >= 3)) {
         ui -> terminal_message_output -> append("数据范围违法！ \n");
         return;
     }
