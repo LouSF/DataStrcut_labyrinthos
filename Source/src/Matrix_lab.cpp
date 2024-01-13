@@ -38,8 +38,11 @@ Matrix_lab file_input_Matrix(const std::string &file_PATH) {
         return {0, 0};
     }
 
+    if (fin.eof()) return {0, 0}; // fin.eof() 输入文件数据完整性
     int _row, _col;
     fin >> _row  >> _col;
+
+    if (fin.eof()) return {0, 0}; // fin.eof() 输入文件数据完整性
 
     Matrix_lab M(_row, _col);
 
