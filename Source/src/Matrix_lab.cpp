@@ -165,7 +165,7 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
 
         std::srand((unsigned)time(nullptr));
 
-        int rand_round = (rand() % _row * _col) / 32;
+        int rand_round = (rand() % _row * _col) / 64;
 
         for (int i = 0; i < rand_round; ++i) {
             int rand_x = rand() % (_row - 2) + 1;
@@ -174,19 +174,19 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
         }
     }
 
-    if (MODE == 3) {
-        M.data = Prim_Creator(_row, _col);
-
-        std::srand((unsigned)time(nullptr));
-
-        int rand_round = (rand() % _row * _col) / 2;
-
-        for (int i = 0; i < rand_round; ++i) {
-            int rand_x = rand() % _row;
-            int rand_y = rand() % _col;
-            M.data[rand_x][rand_y] = 0;
-        }
-    }
+//    if (MODE == 3) {
+//        M.data = Prim_Creator(_row, _col);
+//
+//        std::srand((unsigned)time(nullptr));
+//
+//        int rand_round = (rand() % _row * _col) / 2;
+//
+//        for (int i = 0; i < rand_round; ++i) {
+//            int rand_x = rand() % _row;
+//            int rand_y = rand() % _col;
+//            M.data[rand_x][rand_y] = 0;
+//        }
+//    } // 停用！ low level
 
 
     M.data_click = true;
