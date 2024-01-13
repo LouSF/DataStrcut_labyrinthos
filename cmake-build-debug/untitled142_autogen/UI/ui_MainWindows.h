@@ -51,6 +51,9 @@ public:
     QLabel *label_5;
     QLineEdit *lineEdit_creator_col;
     QSpacerItem *horizontalSpacer_2;
+    QVBoxLayout *verticalLayout;
+    QRadioButton *radioButton_Prim;
+    QRadioButton *radioButton_RandPrim;
     QPushButton *pushButton_creator;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
@@ -132,7 +135,7 @@ public:
 
         horizontalLayoutWidget = new QWidget(centralwidget);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(10, 620, 781, 41));
+        horizontalLayoutWidget->setGeometry(QRect(10, 620, 781, 51));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -172,6 +175,21 @@ public:
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_2);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
+        radioButton_Prim = new QRadioButton(horizontalLayoutWidget);
+        radioButton_Prim->setObjectName("radioButton_Prim");
+
+        verticalLayout->addWidget(radioButton_Prim);
+
+        radioButton_RandPrim = new QRadioButton(horizontalLayoutWidget);
+        radioButton_RandPrim->setObjectName("radioButton_RandPrim");
+
+        verticalLayout->addWidget(radioButton_RandPrim);
+
+
+        horizontalLayout->addLayout(verticalLayout);
 
         pushButton_creator = new QPushButton(horizontalLayoutWidget);
         pushButton_creator->setObjectName("pushButton_creator");
@@ -316,6 +334,8 @@ public:
         label_3->setText(QCoreApplication::translate("MainWindows", "\347\224\237\346\210\220\350\277\267\345\256\253", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindows", "row", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindows", "col", nullptr));
+        radioButton_Prim->setText(QCoreApplication::translate("MainWindows", "\345\256\214\346\225\264", nullptr));
+        radioButton_RandPrim->setText(QCoreApplication::translate("MainWindows", "\345\270\246\345\233\236\350\267\257", nullptr));
         pushButton_creator->setText(QCoreApplication::translate("MainWindows", "\347\224\237\346\210\220", nullptr));
         pushButton_RUN->setText(QCoreApplication::translate("MainWindows", "RUN", nullptr));
         pushButton_Restart->setText(QCoreApplication::translate("MainWindows", "Restart", nullptr));

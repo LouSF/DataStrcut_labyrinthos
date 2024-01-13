@@ -12,7 +12,9 @@ MainWindows::MainWindows(QWidget *parent) :
         QMainWindow(parent), ui(new Ui::MainWindows) {
     ui->setupUi(this);
 
-    ui -> radioButton_BFS -> setChecked(true); // 模式初始化
+    ui -> radioButton_BFS -> setChecked(true); // 模式初始化 solver
+
+    ui -> radioButton_Prim ->setChecked(true); // 模式初始化 creator
 
 }
 
@@ -24,6 +26,10 @@ void MainWindows::on_pushButton_creator_clicked(){
 
     ui -> lineEdit_filepath_Input ->setText("");
 
+    int button_mode = 1;
+    if (ui -> radioButton_Prim -> isChecked()) button_mode = 1;
+    else if (ui -> radioButton_RandPrim -> isChecked()) button_mode = 2;
+
     int _row = (ui -> lineEdit_creator_row -> text()).toInt();
     int _col = (ui -> lineEdit_creator_col -> text()).toInt();
 
@@ -33,7 +39,7 @@ void MainWindows::on_pushButton_creator_clicked(){
     }
 
 
-    M = random_creater_Matrix(_row, _col, 1);
+    M = random_creater_Matrix(_row, _col, button_mode);
 
     ui -> lineEdit_point_start_x -> setText("1");
     ui -> lineEdit_point_start_y -> setText("1");

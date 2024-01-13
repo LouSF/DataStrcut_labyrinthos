@@ -65,7 +65,7 @@ Matrix_lab file_input_Matrix(const std::string &file_PATH) {
         int temp_v;
         for (int j = 0; j < _col; ++j) {
             fin >> temp_v;
-            if (fin.eof() || temp_v < -2 || temp_v > 2500) { // fin.eof() 输入文件数据完整性
+            if (fin.eof() || temp_v < -2 || temp_v > (_row - 1) * (_col - 1)) { // fin.eof() 输入文件数据完整性
                 M.data_click = false;
                 return {0, 0};
             }
@@ -160,11 +160,34 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
     if (MODE == 1)
         M.data = Prim_Creator(_row, _col);
 
-    if (MODE == 2)
-        ;
+    if (MODE == 2) {
+        M.data = Prim_Creator(_row, _col);
 
-    if (MODE == 3)
-        ;
+        std::srand((unsigned)time(nullptr));
+
+        int rand_round = (rand() % _row * _col) / 32;
+
+        for (int i = 0; i < rand_round; ++i) {
+            int rand_x = rand() % (_row - 2) + 1;
+            int rand_y = rand() % (_col - 2) + 1;
+            M.data[rand_x][rand_y] = 0;
+        }
+    }
+
+    if (MODE == 3) {
+        M.data = Prim_Creator(_row, _col);
+
+        std::srand((unsigned)time(nullptr));
+
+        int rand_round = (rand() % _row * _col) / 2;
+
+        for (int i = 0; i < rand_round; ++i) {
+            int rand_x = rand() % _row;
+            int rand_y = rand() % _col;
+            M.data[rand_x][rand_y] = 0;
+        }
+    }
+
 
     M.data_click = true;
     return M;
@@ -223,8 +246,11 @@ std::vector<int> Matrix_lab::maze_solver(Matrix_Point start_point, Matrix_Point 
     int next_pint_xy;
     while(temp_pint_xy) {
         next_pint_xy = backforward[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col];
-        if (next_pint_xy != 0 && next_pint_xy != -1)
+
+        if ((next_pint_xy != 0 && data[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] != -1) ||
+        temp_pint_xy == start_point.x  * Matrix_MAX_col + start_point.y)
             data[temp_pint_xy / Matrix_MAX_col][temp_pint_xy % Matrix_MAX_col] = -2;// -2 为路径
+
         temp_pint_xy = next_pint_xy;
     }
 
