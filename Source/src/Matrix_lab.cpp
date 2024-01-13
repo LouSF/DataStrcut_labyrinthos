@@ -62,12 +62,18 @@ Matrix_lab file_input_Matrix(const std::string &file_PATH) {
         int temp_v;
         for (int j = 0; j < _col; ++j) {
             fin >> temp_v;
+            if (fin.eof() || temp_v < -2 || temp_v > 2500) {
+                M.data_click = false;
+                return {0, 0};
+            }
             temp_col.emplace_back(temp_v);
         }
         M.data.emplace_back(temp_col);
     }
 
     fin.close();
+    M.data_click = true;
+
     return M;
 }
 
@@ -157,6 +163,7 @@ Matrix_lab random_creater_Matrix(int _row, int _col, int MODE) {
     if (MODE == 3)
         ;
 
+    M.data_click = true;
     return M;
 }
 

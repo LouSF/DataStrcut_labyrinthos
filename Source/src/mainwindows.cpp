@@ -105,9 +105,15 @@ void MainWindows::on_pushButton_Input_run_clicked(){
 
     std::string file_path = fileNameInput.toStdString();
     M = file_input_Matrix(file_path);
-    update();
 
-    ui -> terminal_message_output -> append("输入成功！\n");
+    if (!M.data_click) {
+        ui -> terminal_message_output -> append("输入数据有误！\n已重置\n");
+        M = random_creater_Matrix(5, 5, 1);
+    } else {
+        ui -> terminal_message_output -> append("输入成功！\n");
+    }
+
+    update();
 
     ui -> lineEdit_point_start_x -> setText("1");
     ui -> lineEdit_point_start_y -> setText("1");

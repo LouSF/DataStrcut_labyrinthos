@@ -44,6 +44,8 @@ class Matrix_lab {
     Matrix_lab(int _row, int _col) : row(_row), col(_col) {}
 
 public:
+    bool data_click = false;
+
     std::vector<std::vector<int>> data;  //-2 true path  -1 wall  0 unvisit x visited
 
     int row = 0, col = 0;
