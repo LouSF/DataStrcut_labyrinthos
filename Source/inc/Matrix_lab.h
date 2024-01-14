@@ -33,8 +33,8 @@ struct Matrix_Point {
 static Matrix_Point target(0, 0); // for solve
 
 class Matrix_lab {
-    static const int Matrix_MAX_row = 500;
-    static const int Matrix_MAX_col = 500;
+    static const int Matrix_MAX_row = 501;
+    static const int Matrix_MAX_col = 501;
     static const int Matrix_MIN_row = 3;
     static const int Matrix_MIN_col = 3;
 

@@ -147,6 +147,11 @@ void MainWindows::on_pushButton_Output_run_clicked() {
         return;
     }
 
+    if (!selectDir.startsWith("/Users/")) {
+        ui -> terminal_message_output -> append("路径非法！\n不得访问\nPOXIS\n");
+        return;
+    }
+
     std::time_t current_time = std::time(nullptr);
     std::string Path = selectDir.toStdString() + "/maze_" + std::to_string(current_time) + ".in";
     M.file_output_Matrix(Path);
